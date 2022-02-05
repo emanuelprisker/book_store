@@ -1,4 +1,6 @@
-package com.onlinestore.kodigonlinestore.ConnectionDB;
+package com.onlinestore.kodigonlinestore;
+
+import com.onlinestore.kodigonlinestore.ConnectionDB.ConnectionDB;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,14 +14,14 @@ public class main {
 
 try{
     //crea objeto statement
-    Statement miStatement = conn.createStatement();
+    Statement myStatement = conn.createStatement();
     //Ejecutar query
-    ResultSet rs = miStatement.executeQuery("SELECT * FROM CLIENT");
+    ResultSet rs = myStatement.executeQuery("SELECT * FROM CUSTOMER");
     // recorrer el result set
     while(rs.next()){
         //nombre de la columna
-        System.out.println(rs.getString("id_client")+" "+rs.getString("client_name")
-        +" "+rs.getString("lastname")+" "+rs.getString("adress")+" "+
+        System.out.println(rs.getString("id_customer")+" "+rs.getString("name")
+        +" "+rs.getString("lastname")+" "+rs.getString("address")+" "+
                 rs.getString("email")+ " "+rs.getString("telephone"));
     }
 } catch (SQLException throwables) {
