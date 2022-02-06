@@ -13,7 +13,6 @@ public class KodigonlinestoreApplication {
 		SpringApplication.run(KodigonlinestoreApplication.class, args);
 	}
 	@GetMapping
-
 	public String hello() {
 		return "hello";
 	}
