@@ -1,13 +1,12 @@
-package com.onlinestore.kodigonlinestore;
+package com.onlinestore.kodigonlinestore.ConnectionDB;
 
-import com.onlinestore.kodigonlinestore.ConnectionDB.ConnectionDB;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 public class main {
+
     public static void main(String[] args) {
 
         Connection conn = ConnectionDB.getConnection();
