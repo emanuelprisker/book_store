@@ -13,6 +13,6 @@ public class Mail {
         bodyText.append("Book Title: "+ item.getTitle().toUpperCase() +"\n");
         bodyText.append("Price: "+ item.getItemPrice().toUpperCase() +"\n");
 
-        MailSender.sendMail(Mail,bodyText.toString());
+        MailSender.sendMail(Mail,bodyText.toString(), "Kodigo Online Book Store Bill");
     }
 }

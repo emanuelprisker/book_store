@@ -10,7 +10,7 @@ import java.util.Properties;
 public class MailSender {
     private static Object Session;
 
-    public static  void sendMail(String receiver, String bodyText) throws Exception {
+    public static  void sendMail(String receiver, String bodyText, String subject) throws Exception {
         System.out.println("Preparando mail");
         Properties properties = new Properties();
 
@@ -31,23 +31,19 @@ public class MailSender {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(receiver));
-            message.setSubject("Reporte");
+            message.setSubject(subject);
 
             Multipart emailContent = new MimeMultipart();
 
             MimeBodyPart textBodyPart = new MimeBodyPart();
             textBodyPart.setText(bodyText);
 
-            MimeBodyPart txtAttachment = new MimeBodyPart();
-            txtAttachment.attachFile("Data\\Report.txt");
-
             emailContent.addBodyPart(textBodyPart);
-            emailContent.addBodyPart(txtAttachment);
             message.setContent(emailContent);
 
             Transport.send(message);
 
-            System.out.println("ENVIADO");
+            System.out.println("MAIL DELIVERED!");
         }catch (MessagingException mex){
             mex.printStackTrace();
         }
