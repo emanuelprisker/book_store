@@ -1,24 +1,36 @@
-package com.onlinestore.kodigonlinestore.model;
+package com.onlinestore.kodigonlinestore.Model;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customer")
 @Getter @Setter
-    public abstract class  AppUser {
+public class  AppUser {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_customer")
     private int userId;
+    @Column(name = "customer_name")
     private String name;
+   @Column(name = "lastname")
     private String lastName;
+   @Column(name="email")
     private String email;
+   @Column(name="is_admin")
     private boolean isAdmin;
+   @Column(name="pass")
     private String password;
 
 
     public AppUser(int userId,
-                String name,
-                String lastName,
-                String email,
-                boolean isAdmin,
-                String password) {
+                   String name,
+                   String lastName,
+                   String email,
+                   boolean isAdmin,
+                   String password) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -26,7 +38,11 @@ import lombok.Setter;
         this.password = password;
     }
 
-        public AppUser(int userId) {
-            this.userId = userId;
-        }
+    public AppUser(int userId) {
+        this.userId = userId;
+    }
+
+    public AppUser() {
+
+    }
 }
